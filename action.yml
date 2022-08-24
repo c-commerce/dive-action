@@ -8,6 +8,10 @@ inputs:
   image:
     description: "Image to analyze"
     required: true
+  dive-version:
+    description: "Docker Dive version"
+    required: false
+    default: latest
   config-file:
     description: "Path to dive config file"
     required: false

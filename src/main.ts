@@ -1,3 +1,4 @@
+/* eslint-disable i18n-text/no-en */
 import * as core from '@actions/core'
 import * as exec from '@actions/exec'
 import * as github from '@actions/github'
@@ -48,7 +49,9 @@ async function run(): Promise<void> {
     const image = core.getInput('image')
     const configFile = core.getInput('config-file')
 
-    const diveImage = 'wagoodman/dive:v0.9'
+    const diveVersion = core.getInput('dive-version') || 'latest'
+
+    const diveImage = `wagoodman/dive:${diveVersion}`
     await exec.exec('docker', ['pull', diveImage])
 
     const commandOptions = [
@@ -99,10 +102,10 @@ async function run(): Promise<void> {
       issue_number: github.context.issue.number,
       body: format(output)
     }
-    await octokit.issues.createComment(comment)
+    await octokit.rest.issues.createComment(comment)
     core.setFailed(`Scan failed (exit code: ${exitCode})`)
   } catch (error) {
-    core.setFailed(error)
+    core.setFailed(error as Error)
   }
 }
 
