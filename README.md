@@ -1,7 +1,6 @@
 # dive action
 
 [![Release][release-badge]][release]
-[![GitHub Marketplace][marketplace-badge]][marketplace]
 [![License][license-badge]][license]
 
 !["./pr-comment.png"](pr-comment.png)
