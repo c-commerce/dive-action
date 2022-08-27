@@ -1,6 +1,6 @@
 {
   "name": "dive-action",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "[![Release][release-badge]][release] [![GitHub Marketplace][marketplace-badge]][marketplace] [![License][license-badge]][license]",
   "main": "lib/main.js",
   "scripts": {
