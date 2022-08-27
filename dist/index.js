@@ -105,10 +105,18 @@ function run() {
                 '-v',
                 '/var/run/docker.sock:/var/run/docker.sock'
             ];
+            const diveOptions = [];
             if (fs_1.default.existsSync(configFile)) {
-                commandOptions.push('--mount', `type=bind,source=${configFile},target=/.dive-ci`, '--ci-config', '/.dive-ci');
+                commandOptions.push('--mount', `type=bind,source=${configFile},target=/.dive-ci`);
+                diveOptions.push('--ci-config', '/.dive-ci');
             }
-            const parameters = ['run', ...commandOptions, diveImage, image];
+            const parameters = [
+                'run',
+                ...commandOptions,
+                diveImage,
+                image,
+                ...diveOptions
+            ];
             let output = '';
             const execOptions = {
                 ignoreReturnCode: true,
