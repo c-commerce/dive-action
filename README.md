@@ -9,6 +9,10 @@
 
 dive action is an action that allows developers who develop Docker image to run [dive](https://github.com/wagoodman/dive) on GitHub Actions. dive is a tool for exploring a docker image, layer contents, and discovering ways to shrink the size of your Docker/OCI image. Integrating dive into your CI will let you reduce your container image size as early as possible.
 
+## Shout Out
+
+This action was forked from https://github.com/yuichielectric/dive-action and was slightly enhanced.
+
 ## **Usage**
 
 ### Inputs
@@ -36,7 +40,7 @@ jobs:
       - name: Build image
         run: docker build -t sample:latest .
       - name: Dive
-        uses: yuichielectric/dive-action@0.0.4
+        uses: c-commerce/dive-action@0.0.4
         with:
           image: "sample:latest"
           config-file: ${{ github.workspace }}/.dive-ci.yml
@@ -132,8 +136,6 @@ Result:FAIL [Total:3] [Passed:2] [Failed:1] [Warn:0] [Skipped:0]
 ```
 
 [release]: https://github.com/yuichielectric/dive-action/releases/latest
-[release-badge]: https://img.shields.io/github/release/yuichielectric/dive-action.svg?logo=github&color=green
-[marketplace]: https://github.com/marketplace/actions/dive-action
-[marketplace-badge]: https://img.shields.io/badge/marketplace-dive--action-green?logo=github
-[license]: https://github.com/yuichielectric/dive-action/blob/master/LICENSE
-[license-badge]: https://img.shields.io/github/license/yuichielectric/dive-action.svg
+[release-badge]: https://img.shields.io/github/release/c-commerce/dive-action.svg?logo=github&color=green
+[license]: https://github.com/c-commerce/dive-action/blob/master/LICENSE
+[license-badge]: https://img.shields.io/github/license/c-commerce/dive-action.svg
